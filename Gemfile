@@ -15,6 +15,7 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 gem "slim"
 gem "thin"
+gem 'rack-contrib'
 gem "bourbon"
 gem "neat"
 gem "bitters"
