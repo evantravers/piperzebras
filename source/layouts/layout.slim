@@ -1,0 +1,21 @@
+doctype 5
+html
+  head
+    meta name="description" content=""
+    meta name="keywords" content=""
+    meta name="title" content=""
+    meta charset="utf-8"
+    link rel="author" href="humans.txt"
+
+    meta name="viewport" content="width=device-width initial-scale=1.0"
+
+    = javascript_include_tag 'bower_components/instafeed.js/instafeed.js'
+    = javascript_include_tag 'main'
+    = stylesheet_link_tag 'style'
+  body
+    header
+      h1 #piperzebras
+    main
+      = yield
+    footer
+      p all content &copy;2014 Piper Weaver
