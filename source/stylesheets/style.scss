@@ -1,6 +1,28 @@
 @import
   'vendor/vendor';
 
+header {
+  height: 0;
+  margin-bottom: 1em;
+  padding-bottom: 20%;
+  text-indent: -99999px;
+
+  background-image: image-url('header.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+footer {
+  margin-top: 1em;
+  padding-bottom: 13%;
+
+  background-image: image-url('footer.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  text-indent: -99999px;
+}
+
 header, footer {
   @include outer-container();
 
