@@ -10,15 +10,17 @@ header {
   background-image: image-url('header.jpg');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center center;
 }
 
 footer {
   margin-top: 1em;
-  padding-bottom: 13%;
+  padding-bottom: 42%;
 
   background-image: image-url('footer.jpg');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center center;
 
   text-indent: -99999px;
 }
