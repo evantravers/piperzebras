@@ -11,9 +11,9 @@ $('document').ready(function() {
 
   var feed = new Instafeed({
     get: 'user',
-    userId: '16206566',
+    userId: '4534823990',
     clientId: 'c0c7115af26f418c87e7be22c303da2f',
-    accessToken: '16206566.c0c7115.770a51feb4a242bea4e16026c578b450',
+    accessToken: '4534823990.c0c7115.496a55e206904253be86387439328f7e',
     resolution: 'standard_resolution',
     before: function() {
       $('#instafeed').waypoint('disable');
