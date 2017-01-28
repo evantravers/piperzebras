@@ -75,5 +75,5 @@ configure :build do
   # set :relative_links, true
 
   # Or use a different image path
-  set :http_prefix, "/piperzebras"
+  # set :http_prefix, "/piperzebras"
 end
