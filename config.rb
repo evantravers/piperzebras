@@ -55,7 +55,7 @@ set :images_dir, 'images'
 
 activate :deploy do |deploy|
   deploy.deploy_method = :git
-  deploy.remote        = 'github'
+  deploy.remote        = 'git@github.com:evantravers/piperzebras.git'
 end
 
 # Build-specific configuration
@@ -72,6 +72,8 @@ configure :build do
   # Use relative URLs
   # activate :relative_assets
 
+  set :relative_links, true
+
   # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  set :http_prefix, "/piperzebras"
 end
