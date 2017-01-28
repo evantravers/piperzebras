@@ -10,12 +10,11 @@ $('document').ready(function() {
   });
 
   var feed = new Instafeed({
-    get: 'tagged',
-    tagName: 'piperzebras',
-    resolution: 'standard_resolution',
-    userId: '16206566',
+    get: 'user',
+    userId: '2460940',
     clientId: 'c0c7115af26f418c87e7be22c303da2f',
-    accessToken: '16206566.467ede5.f514a92579754e0298fa023cf7848573',
+    accessToken: '2460940.1677ed0.a815f199b3484cd2aac31312854fe978',
+    resolution: 'standard_resolution',
     before: function() {
       $('#instafeed').waypoint('disable');
     },
