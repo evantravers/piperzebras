@@ -1,0 +1,52 @@
+<!DOCTYPE html><html><head><meta content="" name="description" /><meta content="" name="keywords" /><meta content="" name="title" /><meta charset="utf-8" /><link href="humans.txt" rel="author" /><link href="/favicon.ico" rel="icon" type="image/ico" /><meta content="width=device-width initial-scale=1.0" name="viewport" /><script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script><script src="/bower_components/instafeed.js/instafeed.js" type="text/javascript"></script><script src="/bower_components/jquery-waypoints/waypoints.js" type="text/javascript"></script><script src="/javascripts/main.js" type="text/javascript"></script><link href="/stylesheets/style.css" rel="stylesheet" type="text/css" /></head><body><header><h1>#piperzebras</h1></header><main><h1 id="jquery-waypoints">jQuery Waypoints</h1>
+
+<p>Waypoints is a jQuery plugin that makes it easy to execute a function whenever you scroll to an element.</p>
+
+<p><code>js
+$('.thing').waypoint(function() {
+  alert('You have scrolled to a thing.');
+});
+</code>
+If you're new to Waypoints, check out the <a href="http://imakewebthings.github.com/jquery-waypoints/#get-started">Get Started</a> section.</p>
+
+<p><a href="http://imakewebthings.github.com/jquery-waypoints/#docs">Read the full documentation</a> for more details on usage and customization.</p>
+
+<h2 id="shortcuts">Shortcuts</h2>
+
+<p>In addition to the normal Waypoints script, extensions exist to make common UI patterns just a little easier to implement:</p>
+
+<ul>
+  <li><a href="http://imakewebthings.github.com/jquery-waypoints/shortcuts/infinite-scroll">Infinite Scrolling</a></li>
+  <li><a href="http://imakewebthings.github.com/jquery-waypoints/shortcuts/sticky-elements">Sticky Elements</a></li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<p>Waypoints can also be used as a base for your own custom UI patterns. Here are a few examples:</p>
+
+<ul>
+  <li><a href="http://imakewebthings.github.com/jquery-waypoints/examples/scroll-analytics">Scroll Analytics</a></li>
+  <li><a href="http://imakewebthings.github.com/jquery-waypoints/examples/dial-controls">Dial Controls</a></li>
+</ul>
+
+<h2 id="amd-module-loader-support">AMD Module Loader Support</h2>
+
+<p>If you're using an AMD loader like <a href="http://requirejs.org/">RequireJS</a>, Waypoints registers itself as a named module, <code>'waypoints'</code>. Shortcut scripts are anonymous modules.</p>
+
+<h2 id="development-environment">Development Environment</h2>
+
+<p>If you want to contribute to Waypoints, I love pull requests that include changes to the source <code>coffee</code> files as well as the compiled JS and minified files. You can set up the same environment by running <code>make setup</code> (which just aliases to <code>npm install</code>). This will install the version of CoffeeScript and UglifyJS that I'm using. From there, running <code>make build</code> will compile and minify all the necessary files. Test coffee files are compiled on the fly, so compile and minify do not apply to those files.</p>
+
+<h2 id="license">License</h2>
+
+<p>Copyright (c) 2011-2014 Caleb Troughton
+Licensed under the <a href="https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt">MIT license</a>.</p>
+
+<h2 id="support">Support</h2>
+
+<p>Unit tests for Waypoints are written with <a href="http://pivotal.github.com/jasmine/">Jasmine</a> and <a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a>.  You can <a href="http://imakewebthings.github.com/jquery-waypoints/test/">run them here</a>. If any of the tests fail, please open an issue and include the browser used, operating system, and description of the failed test.</p>
+
+<h2 id="donations">Donations</h2>
+
+<p><a title="Donate weekly to this project using Gittip" href="https://www.gittip.com/imakewebthings/"><img alt="Gittip donate button" src="http://img.shields.io/gittip/imakewebthings.png" /></a></p>
+</main><footer><p>all content &copy;2014 Piper Weaver</p></footer></body></html>

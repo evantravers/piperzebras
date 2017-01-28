@@ -1,0 +1,268 @@
+<!DOCTYPE html><html><head><meta content="" name="description" /><meta content="" name="keywords" /><meta content="" name="title" /><meta charset="utf-8" /><link href="humans.txt" rel="author" /><link href="/favicon.ico" rel="icon" type="image/ico" /><meta content="width=device-width initial-scale=1.0" name="viewport" /><script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script><script src="/bower_components/instafeed.js/instafeed.js" type="text/javascript"></script><script src="/bower_components/jquery-waypoints/waypoints.js" type="text/javascript"></script><script src="/javascripts/main.js" type="text/javascript"></script><link href="/stylesheets/style.css" rel="stylesheet" type="text/css" /></head><body><header><h1>#piperzebras</h1></header><main><h1 id="instafeedjs">instafeed.js</h1>
+<p><a href="https://travis-ci.org/stevenschobert/instafeed.js"><img alt="Build Status" src="https://travis-ci.org/stevenschobert/instafeed.js.png?branch=master" /></a></p>
+
+<p>Instafeed is a dead-simple way to add Instagram photos to your website. No jQuery required, just good 'ol plain javascript.</p>
+
+<p><strong>Examples:</strong></p>
+
+<ul>
+  <li><a href="http://hemeon.com/">Hemeon.com</a> by <a href="https://twitter.com/hemeon">Marc Hemeon</a></li>
+  <li><a href="http://www.manikrathee.com/is/a/mobile-photographer/">Manik Rathee is a mobile photographer</a> by <a href="http://twitter.com/manikrathee">Manik Rathee</a></li>
+  <li><a href="http://vinthomas.com/">VinThomas.com</a> by <a href="https://twitter.com/vinthomas">Vin Thomas</a></li>
+  <li><a href="http://www.kozikcocoon.com/">The Kozik Cocoon</a> by <a href="http://twitter.com/dannyprose">Danny Palmer</a></li>
+</ul>
+
+<p><strong>Buy me a coffee:</strong></p>
+
+<p>If you enjoy using Instafeed.js and want to say thanks, you can leave me a small tip using <a href="https://www.gittip.com/stevenschobert">Gittip</a>.</p>
+
+<h2 id="installation">Installation</h2>
+<p>Setting up Instafeed is pretty straight-forward. Just download the script and include it in your HTML:</p>
+
+<p><code>html
+&lt;script type="text/javascript" src="path/to/instafeed.min.js"&gt;&lt;/script&gt;
+</code></p>
+
+<h2 id="basic-usage">Basic Usage</h2>
+<p>Here's how easy it is to get all images tagged with <strong>#awesome</strong>:</p>
+
+<p><code>html
+&lt;script type="text/javascript"&gt;
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'awesome',
+        clientId: 'YOUR_CLIENT_ID'
+    });
+    feed.run();
+&lt;/script&gt;
+</code></p>
+
+<p>Instafeed with automatically look for a <code>&lt;div id="instafeed"&gt;&lt;/div&gt;</code> and fill it with linked thumbnails. Of course, you can easily change this behavior using <a href="#standard-options">standard options</a>. Also check out the <a href="#advanced-options">advanced options</a> for some advanced ways of customizing <strong>Instafeed.js</strong>.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>The only thing you'll need to get going is a valid <strong>client id</strong> from Instagram's API. You can easily register for one on <a href="http://instagram.com/developer/register/">Instagram's website</a>.</p>
+
+<blockquote>
+  <p>If you want to get images from a specific user, you will need a valid oAuth token. Using an oAuth token has security risks. See the section on <strong>"Security Considerations"</strong></p>
+</blockquote>
+
+<h2 id="standard-options">Standard Options</h2>
+
+<ul>
+  <li><code>clientId</code> (string) - Your API client id from Instagram. <strong>Required</strong>.</li>
+  <li><code>accessToken</code> (string) - A valid oAuth token. Required to use <strong>get: 'user'</strong>.</li>
+  <li><code>target</code> (string) - The ID of a DOM element you want to add the images to.</li>
+  <li><code>template</code> (string) - Custom HTML template to use for images. See <a href="#templating">templating</a>.</li>
+  <li><code>get</code> (string) - Customize what Instafeed fetches. Available options are:
+    <ul>
+      <li><code>popular</code> (default) - Images from the popular page</li>
+      <li><code>tagged</code> - Images with a specific tag. Use <code>tagName</code> to specify the tag.</li>
+      <li><code>location</code> - Images from a location. Use <code>locationId</code> to specify the location</li>
+      <li><code>user</code> - Images from a user. Use <code>userId</code> to specify the user.</li>
+    </ul>
+  </li>
+  <li><code>tagName</code> (string) - Name of the tag to get. Use with <code>get: 'tagged'</code>.</li>
+  <li><code>locationId</code> (number) - Unique id of a location to get. Use with <code>get: 'location'</code>.</li>
+  <li><code>userId</code> (number) - Unique id of a user to get. Use with <code>get: 'user'</code>.</li>
+  <li><code>sortBy</code> (string) - Sort the images in a set order. Available options are:
+    <ul>
+      <li><code>none</code> (default) - As they come from Instagram.</li>
+      <li><code>most-recent</code> - Newest to oldest.</li>
+      <li><code>least-recent</code> - Oldest to newest.</li>
+      <li><code>most-liked</code> - Highest # of likes to lowest.</li>
+      <li><code>least-liked</code> - Lowest # likes to highest.</li>
+      <li><code>most-commented</code> - Highest # of comments to lowest.</li>
+      <li><code>least-commented</code> - Lowest # of comments to highest.</li>
+      <li><code>random</code> - Random order.</li>
+    </ul>
+  </li>
+  <li><code>links</code> (bool) - Wrap the images with a link to the photo on Instagram.</li>
+  <li><code>limit</code> (number) - Maximum number of Images to add. <strong>Max of 60</strong>.</li>
+  <li><code>useHttp</code> (bool) - By default, image urls are protocol-relative. Set to <code>true</code>
+to use the standard <code>http://</code>.</li>
+  <li><code>resolution</code> (string) - Size of the images to get. Available options are:
+    <ul>
+      <li><code>thumbnail</code> (default) - 150x150</li>
+      <li><code>low_resolution</code> - 306x306</li>
+      <li><code>standard_resolution</code> - 612x612</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="advanced-options">Advanced Options</h2>
+
+<ul>
+  <li><code>before</code> (function) - A callback function called before fetching images from Instagram.</li>
+  <li><code>after</code> (function) - A callback function called when images have been added to the page.</li>
+  <li><code>success</code> (function) - A callback function called when Instagram returns valid data. (argument -&gt; json object)</li>
+  <li><code>error</code> (function) - A callback function called when there is an error fetching images. (argument -&gt; string message)</li>
+  <li><code>mock</code> (bool) - Set to true fetch data without inserting images into DOM. Use with <strong>success</strong> callback.</li>
+  <li><code>filter</code> (function) - A function used to exclude images from your results. The function will be
+given the image data as an argument, and expects the function to return a boolean. See the example
+below for more information.</li>
+</ul>
+
+<p><strong>Example Filter (get username + tagged):</strong></p>
+
+<p><code>js
+var feed = new Instafeed({
+  get: 'user',
+  userId: USER_ID,
+  filter: function(image) {
+    return image.tags.indexOf('TAG_NAME') &gt;= 0;
+  }
+});
+feed.run();
+</code></p>
+
+<p>To see a full list of properties that <code>image</code> has, see <a href="https://github.com/stevenschobert/instafeed.js/issues/21">issue #21</a>.</p>
+
+<h2 id="templating">Templating</h2>
+
+<p>The easiest way to control the way Instafeed.js looks on your website is to use the <strong>template</strong> option. You can write your own HTML markup and it will be used for every image that Instafeed.js fetches.</p>
+
+<p>Here's a quick example:</p>
+
+<p><code>html
+&lt;script type="text/javascript"&gt;
+    var feed = new Instafeed({
+        get: 'popular',
+        tagName: 'awesome',
+        clientId: 'YOUR_CLIENT_ID',
+        template: '&lt;a class="animation" href="{{link}}"&gt;&lt;img src="{{image}}" /&gt;&lt;/a&gt;'
+    });
+    feed.run();
+&lt;/script&gt;
+</code></p>
+
+<p>Notice the <code>{{link}}</code> and <code>{{image}}</code>? The templating option provides several tags for you to use to control where variables are inserted into your HTML markup. Available keywors are:</p>
+
+<ul>
+  <li><code>{{link}}</code> - URL to view the image on Instagram's website.</li>
+  <li><code>{{image}}</code> - URL of the image source. The size is inherited from the <code>resolution</code> option.</li>
+  <li><code>{{id}}</code> - Unique ID of the image. Useful if you want to use <a href="http://instagram.com/developer/iphone-hooks/">iPhone hooks</a> to open the images directly in the Instagram app.</li>
+  <li><code>{{caption}}</code> - Image's caption text. Defaults to empty string if there isn't one.</li>
+  <li><code>{{likes}}</code> - Number of likes the image has.</li>
+  <li><code>{{comments}}</code> - Number of comments the image has.</li>
+  <li><code>{{location}}</code> - Name of the location associated with the image. Defaults to empty string if there isn't one.</li>
+  <li><code>{{model}}</code> - Full JSON object of the image. If you want to get a property of the image that isn't listed above you access it using dot-notation. (ex: <code>{{model.filter}}</code> would get the filter used.)</li>
+</ul>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>As of <strong>v1.3</strong>, Instafeed.js has a <code>.next()</code> method you can call to load more images from Instagram.
+Under the hood, this uses the <em>pagination</em> data from the API. Additionall, there is a helper
+<code>.hasNext()</code> method that you can use to check if pagination data is available.</p>
+
+<p>Together these options can be used to create a "Load More" button:</p>
+
+<p>```js
+// grab out load more button
+var loadButton = document.getElementById('load-more'),</p>
+
+<pre><code>feed = new Instafeed({
+  // every time we load more, run this function
+  after: function() {
+    // disable button if no more results to load
+    if (!this.hasNext()) {
+      loadButton.setAttribute('disabled', 'disabled');
+    }
+  },
+});
+</code></pre>
+
+<p>// bind the load more button
+loadButton.addEventListener('click', function() {
+  feed.next();
+});</p>
+
+<p>// run our feed!
+feed.run();
+```</p>
+
+<h2 id="security-considerations">Security Considerations</h2>
+
+<p>With Instafeed, it is possible to get images from a specific user id:</p>
+
+<p><code>html
+&lt;script type="text/javascript"&gt;
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: YOUR_USER_ID,
+        accessToken: 'YOUR_ACCESS_TOKEN'
+    });
+    userFeed.run();
+&lt;/script&gt;
+</code></p>
+
+<p>This setup requires an <strong>accessToken</strong>. Normally, using tokens like this in javascript would be <em>very bad</em>. However, since Instagram provides <a href="http://instagram.com/developer/authentication/">scoping</a> in their API, you can limit the risk of user impersonation.</p>
+
+<p>Just always make sure your token is set to <strong>basic authorization</strong>, which only allows 'GET' requests. If you aren't sure what scope your token has, check under your <a href="https://instagram.com/accounts/manage_access">account page</a>.</p>
+
+<h2 id="contributing-to-development">Contributing to Development</h2>
+
+<p>This isn't a large project by any means, but I'm definitely welcome to any pull requests and contributions. Everything is written and tested in <a href="http://coffeescript.org">CoffeeScript</a>.</p>
+
+<p>You can get your copy up and running for development quickly by cloning the repo and running <a href="http://npmjs.org/">npm</a>:</p>
+
+<p><code>
+$ npm install
+</code></p>
+
+<p>This will install all the necessary test tools for testing. There is also a Makefile in the repo to make your tests quick and easy:</p>
+
+<ul>
+  <li><code>make test</code> will run all the tests using <a href="http://visionmedia.github.com/mocha/">Mocha</a> + <a href="http://chaijs.com/">Chai</a> + <a href="http://www.coffeelint.org/">CoffeeLint</a></li>
+  <li><code>make min</code> will create the minified version</li>
+  <li><code>make</code> will run both the previous steps and compile everything</li>
+</ul>
+
+<h2 id="change-log">Change Log</h2>
+
+<p><strong>1.3.1</strong></p>
+
+<ul>
+  <li>Fixed an issue where <code>sortBy: "most-recent"</code> did not always correctly sort the images. Thanks
+<a href="https://github.com/neilcampbell">Neil Campbell</a>!</li>
+  <li>Changed the default <code>sortBy</code> option to be <code>none</code>.</li>
+</ul>
+
+<p><strong>1.3.0</strong></p>
+
+<ul>
+  <li>Image URLs are now protocol-relative by default. Use the new <code>useHttp</code> option to disable.</li>
+  <li>Added the ability to filter out images using the <code>filter</code> option.</li>
+  <li>Added pagination support using <code>.next()</code> and <code>.hasNext()</code> methods.</li>
+  <li>Removed the default <code>limit</code> of 15 images. The option is still supported, but by default no limit
+is sent to the API.</li>
+</ul>
+
+<p><strong>1.2.1</strong></p>
+
+<ul>
+  <li>Fixed IE8 error "Object doesn't support this action".</li>
+</ul>
+
+<p><strong>1.2.0</strong></p>
+
+<ul>
+  <li>Added the ability to sort images! Use the <strong>sortBy</strong> option.</li>
+  <li>Added <strong>{{likes}}</strong>, <strong>{{comments}}</strong>, <strong>{{id}}</strong>, <strong>{{caption}}</strong>, <strong>{{location}}</strong>, and <strong>{{model}}</strong>, tags to the <strong>template</strong> option.</li>
+</ul>
+
+<p><strong>1.1.0</strong></p>
+
+<ul>
+  <li>Added option to use a custom html template with the <strong>template</strong> option.</li>
+  <li>Added ability to fetch several feeds at the same time (create separate instances).</li>
+  <li>Added <strong>before</strong>, <strong>success</strong>, <strong>after</strong>, and <strong>error</strong> callback options.</li>
+  <li>Added <strong>mock</strong> option to only fetch data. Use with <strong>success</strong> option for custom DOM manipulation.</li>
+</ul>
+
+<p><strong>1.0.0</strong></p>
+
+<ul>
+  <li>Initial release</li>
+</ul>
+</main><footer><p>all content &copy;2014 Piper Weaver</p></footer></body></html>
