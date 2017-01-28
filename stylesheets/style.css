@@ -245,7 +245,7 @@ header {
   margin-bottom: 1em;
   padding-bottom: 20%;
   text-indent: -99999px;
-  background-image: url("../images/header.jpg");
+  background-image: url("/piperzebras/images/header.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
@@ -254,7 +254,7 @@ header {
 footer {
   margin-top: 1em;
   padding-bottom: 42%;
-  background-image: url("../images/footer.jpg");
+  background-image: url("/piperzebras/images/footer.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center center;
