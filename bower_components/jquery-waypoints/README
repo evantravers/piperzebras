@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta content="" name="description" /><meta content="" name="keywords" /><meta content="" name="title" /><meta charset="utf-8" /><link href="humans.txt" rel="author" /><link href="/favicon.ico" rel="icon" type="image/ico" /><meta content="width=device-width initial-scale=1.0" name="viewport" /><script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script><script src="/bower_components/instafeed.js/instafeed.js" type="text/javascript"></script><script src="/bower_components/jquery-waypoints/waypoints.js" type="text/javascript"></script><script src="/javascripts/main.js" type="text/javascript"></script><link href="/stylesheets/style.css" rel="stylesheet" type="text/css" /></head><body><header><h1>#piperzebras</h1></header><main><h1 id="jquery-waypoints">jQuery Waypoints</h1>
+<h1 id="jquery-waypoints">jQuery Waypoints</h1>
 
 <p>Waypoints is a jQuery plugin that makes it easy to execute a function whenever you scroll to an element.</p>
 
@@ -48,5 +48,4 @@ Licensed under the <a href="https://github.com/imakewebthings/jquery-waypoints/b
 
 <h2 id="donations">Donations</h2>
 
-<p><a title="Donate weekly to this project using Gittip" href="https://www.gittip.com/imakewebthings/"><img alt="Gittip donate button" src="http://img.shields.io/gittip/imakewebthings.png" /></a></p>
-</main><footer><p>all content &copy;2014 Piper Weaver</p></footer></body></html>
+<p><a href="https://www.gittip.com/imakewebthings/" title="Donate weekly to this project using Gittip"><img src="http://img.shields.io/gittip/imakewebthings.png" alt="Gittip donate button" /></a></p>
